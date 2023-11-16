@@ -53,6 +53,7 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
+   **START IF**
    if message.channel.id == **CHANNEL_ID**:
        if message.author.id != bot.application_id:
            if message.mentions:
@@ -62,7 +63,7 @@ async def on_message(message):
                    await message.channel.send("**Quoted!** New totals:\n" + await get_formatted_leaderboard(), reference=message, silent=True)
                else:
                    to_delete_message = await message.channel.send("You didn't mention anyone. If this is a quote, please delete your message and send it again with the person's name mentioned. (This message will delete itself.)", reference=message, delete_after=15)
-               
+   **END IF**
 @bot.command(name="formatting-help", description="Show optimal formatting for quotes.")
 async def showformatting(ctx):
    await ctx.respond("The only requirement for quotes in this channel is that the person/people being quoted are mentioned in the message. However, *optimal* formatting is as follows:\n\> Quote\n\\\- \@user\n\nThe greater than symbol formats the quotation as a Block Quote, and the backslash prevents Discord from formatting your attribution as a Bulleted List (•).", ephemeral=True)
