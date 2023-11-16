@@ -78,4 +78,4 @@ async def setcount(ctx, name: discord.Option(discord.Member), total: discord.Opt
 async def getleaderboard(ctx):
    await ctx.respond("Leaderboard:\n" + await get_formatted_leaderboard(), ephemeral=True)
 
-bot.run("TOKEN")
+bot.run("**TOKEN**")
