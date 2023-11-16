@@ -5,4 +5,4 @@ File.close()
 Contents = Contents.replace("**TOKEN**", Token)
 File = open("bot.py", 'w')
 File.write(Contents)
-File.close
+File.close()
