@@ -1,4 +1,4 @@
-Token = Input("Please Enter Your Token: \t")
+Token = input("Please Enter Your Token: \t")
 File = open("bot.py", 'r')
 Contents = File.read()
 File.close()
