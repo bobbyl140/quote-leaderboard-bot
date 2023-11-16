@@ -53,7 +53,7 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
-   if message.channel.id == CHANNEL_ID:
+   if message.channel.id == **CHANNEL_ID**:
        if message.author.id != bot.application_id:
            if message.mentions:
                if userid_regex.search(message.content):
