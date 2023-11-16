@@ -53,7 +53,7 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
-   if message.channel.id == CHANNEL_ID:
+   if message.channel.id == **CHANNEL_ID**:
        if message.author.id != bot.application_id:
            if message.mentions:
                if userid_regex.search(message.content):
@@ -78,4 +78,4 @@ async def setcount(ctx, name: discord.Option(discord.Member), total: discord.Opt
 async def getleaderboard(ctx):
    await ctx.respond("Leaderboard:\n" + await get_formatted_leaderboard(), ephemeral=True)
 
-bot.run("TOKEN")
+bot.run("**TOKEN**")
