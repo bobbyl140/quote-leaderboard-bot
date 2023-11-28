@@ -67,6 +67,8 @@ async def on_message(message):
 					await message.channel.send("**Quoted!** New totals:\n" + await get_formatted_leaderboard(), reference=message, silent=True, delete_after=15)
 				else:
 					to_delete_message = await message.channel.send("You didn't mention anyone. If this is a quote, please delete your message and send it again with the person's name mentioned. (This message will delete itself.)", reference=message, delete_after=15)
+			else:
+				to_delete_message = await message.channel.send("You didn't mention anyone. If this is a quote, please delete your message and send it again with the person's name mentioned. (This message will delete itself.)", reference=message, delete_after=15)
 
 # Slash commands
 @bot.command(name="formatting-help", description="Show optimal formatting for quotes.")
