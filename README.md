@@ -6,4 +6,6 @@ This bot was written to keep track of how many times people are quoted in a spec
 
 I may fix the hardcoded Channel ID at some point (see [#4](https://github.com/bobbyl140/quote-leaderboard-bot/issues/4)), but until I do, the Channel ID will be set by `setup.py`, or can be set to a List of IDs without too much difficulty.
 
+NOTE: By default the bot runs silently. This means quotes will only be acknowledged by the reaction, and a message won't be sent back for invalid quotes. If your users are new to this bot, consider uncommenting the revelant lines under the `on_message()` function for a while.
+
 Also note that this code is in no way optimized. I'm sorry.
