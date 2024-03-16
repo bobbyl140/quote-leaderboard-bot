@@ -59,16 +59,13 @@ async def on_ready():
 async def on_message(message):
 	if message.channel.id == **CHANNEL_ID**:
 		if message.author.id != bot.application_id:
-			if message.mentions:
-				if userid_regex.search(message.content):
-					print(f'{message.author.name} ({message.author.id}) quoted: \"{message.content}\"')
-					update_leaderboard(message.mentions)
-					await message.add_reaction(emoji)
-#					await message.channel.send("**Quoted!** New totals:\n" + await get_formatted_leaderboard(), reference=message, silent=True, delete_after=5)
-#				else:
-#					to_delete_message = await message.channel.send("You didn't mention anyone. If this is a quote, please delete your message and send it again with the person's name mentioned. (This message will delete itself.)", reference=message, delete_after=15)
+			if userid_regex.search(message.content):
+				print(f'{message.author.name} ({message.author.id}) quoted: \"{message.content}\"')
+				update_leaderboard(message.mentions)
+				await message.add_reaction(emoji)
+#				await message.channel.send("**Quoted!** New totals:\n" + await get_formatted_leaderboard(), reference=message, silent=True, delete_after=5)
 #			else:
-#				to_delete_message = await message.channel.send("You didn't mention anyone. If this is a quote, please delete your message and send it again with the person's name mentioned. (This message will delete itself.)", reference=message, delete_after=15)
+#				to_delete_message = await message.channel.send("You didn't mention anyone. If this is a quote, please delete your message and send it again with the person's name mentioned. (This message will delete itself.)", reference=message, delete_after=15)	
 
 # Slash commands
 @bot.command(name="formatting-help", description="Show optimal formatting for quotes.")
