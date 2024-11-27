@@ -69,9 +69,10 @@ async def on_ready():
 	print(f"{bot.user} is ready and online!")
 @bot.event
 async def on_message(message):
+	print('Message identified! Message in '+str(message.channel)+'!')
 	for i in range(len(channels)-1):
 		channel = channels[i]
-		if message.channel.id == channel:
+		if str(message.channel.id) == channel:
 			if message.author.id != bot.application_id:
 				if userid_regex.search(message.content):
 					print(f'{message.author.name} ({message.author.id}) quoted: \"{message.content}\"')
