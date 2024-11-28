@@ -10,8 +10,20 @@ intents = discord.Intents.all()
 bot = discord.Bot(intents=intents)
 
 # Global vars
+global userid_regex
+global emoji
+global channels
+
+# Global Constants
+global TOKEN
+
+# Declare Inital Variables
+channels = open("ChannelID.cfg", 'r').read().split(', ')
 userid_regex = re.compile('<@[0-9]*>')
 emoji = '\N{THUMBS UP SIGN}'
+
+# Declare Constant Values
+TOKEN = open("Token.cfg", 'r').read()
 
 # Functions
 async def getid(idnum: int):
@@ -57,12 +69,15 @@ async def on_ready():
 	print(f"{bot.user} is ready and online!")
 @bot.event
 async def on_message(message):
-	if message.channel.id == **CHANNEL_ID**:
-		if message.author.id != bot.application_id:
-			if userid_regex.search(message.content):
-				print(f'{message.author.name} ({message.author.id}) quoted: \"{message.content}\"')
-				update_leaderboard(message.mentions)
-				await message.add_reaction(emoji)
+	print('Message identified! Message in '+str(message.channel)+'!')
+	for i in range(len(channels)-1):
+		channel = channels[i]
+		if str(message.channel.id) == channel:
+			if message.author.id != bot.application_id:
+				if userid_regex.search(message.content):
+					print(f'{message.author.name} ({message.author.id}) quoted: \"{message.content}\"')
+					update_leaderboard(message.mentions)
+					await message.add_reaction(emoji)
 #				await message.channel.send("**Quoted!** New totals:\n" + await get_formatted_leaderboard(), reference=message, silent=True, delete_after=5)
 #			else:
 #				to_delete_message = await message.channel.send("You didn't mention anyone. If this is a quote, please delete your message and send it again with the person's name mentioned. (This message will delete itself.)", reference=message, delete_after=15)	
@@ -88,4 +103,4 @@ async def getleaderboard2(ctx):
 	await ctx.respond("Leaderboard:\n" + await get_formatted_leaderboard(), ephemeral=True)
 
 # Deferred run
-bot.run("**TOKEN**")
+bot.run(TOKEN)
