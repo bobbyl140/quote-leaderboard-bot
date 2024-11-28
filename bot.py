@@ -17,7 +17,7 @@ global channels
 # Global Constants
 global TOKEN
 
-# Declare Inital Variables
+# Declare Initial Variables
 channels = open("ChannelID.cfg", 'r').read().split(', ')
 userid_regex = re.compile('<@[0-9]*>')
 emoji = '\N{THUMBS UP SIGN}'
